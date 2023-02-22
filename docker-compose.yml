@@ -9,6 +9,11 @@ services:
        - LISTEN_PORT=8334
        - REMOTE_ADDR=btcd
        - REMOTE_PORT=8334
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "10"
   ord:
     build:
       context: .
@@ -21,6 +26,11 @@ services:
       - /mnt/btcdata:/btcdata # Bitcoin node data dir
       - /mnt/orddata:/orddata # Ord side car data dir
     command: /usr/src/myapp/target/release/ord --data-dir /orddata --bitcoin-data-dir /btcdata --rpc-url http://proxy:8334 server
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "10"
   btcd:
     build:
       context: docker/btcd
@@ -31,3 +41,8 @@ services:
       - /mnt/btcdata:/btcdata
       - ./docker/btcd.conf:/config
     command: btcd -C /config --notls
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "10"
