@@ -1,0 +1,3 @@
+[submodule "docker/btcd"]
+	path = docker/btcd
+	url = https://github.com/btcsuite/btcd.git

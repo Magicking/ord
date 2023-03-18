@@ -1,0 +1,17 @@
+/.idea/
+/.vagrant
+/docs/build
+/fuzz/artifacts
+/fuzz/corpus
+/fuzz/coverage
+/fuzz/target
+/index.redb
+/ord.log
+/target
+/test-times.txt
+/tmp
+Dockerfile
+docker-compose.yml
+docker/
+orddata
+btcdata
